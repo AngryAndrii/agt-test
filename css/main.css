@@ -1,0 +1,8 @@
+:root {
+  --anim: all 2s ease-in-out;
+}
+
+.invisible {
+  opacity: 0;
+  transition: var(--anim);
+}
