@@ -1,4 +1,8 @@
+import { fetchData } from './fetch.js';
+
 const mainButton = document.querySelector('#main-button');
+const mainHeader = document.querySelector('#main-header');
+const headerDescr = document.querySelector('#header-descr');
 
 const rainbowColor = ['#dd0000', '#fe622b', '#fef701', '#03bd00', '#019cfe', '#000084', '#2d009c'];
 
@@ -12,6 +16,17 @@ const changeColor = () => {
   mainButton.style.backgroundColor = color;
 };
 
+const chageHeader = async () => {
+  const newText = await fetchData();
+  mainHeader.innerHTML = newText;
+};
+
+const makeTextInvisible = () => {
+  headerDescr.classList.add('invisible');
+};
+
 mainButton.addEventListener('click', () => {
   changeColor();
+  chageHeader();
+  makeTextInvisible();
 });
