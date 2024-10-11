@@ -6,3 +6,7 @@
   opacity: 0;
   transition: var(--anim);
 }
+
+.drag {
+  cursor: move;
+}
