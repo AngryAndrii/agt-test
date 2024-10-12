@@ -10,3 +10,7 @@
 .drag {
   cursor: move;
 }
+
+.navbar {
+  height: 50px;
+}
