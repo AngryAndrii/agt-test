@@ -17,12 +17,10 @@ const changeSquaresColor = () => {
 dragElements.forEach((el) => {
   el.addEventListener('dragstart', (e) => {
     draggedItem = e.target;
-    console.log('start');
   });
 
   el.addEventListener('dragover', (e) => {
     e.preventDefault();
-    console.log('over');
   });
 
   el.addEventListener('drop', (e) => {
@@ -31,13 +29,12 @@ dragElements.forEach((el) => {
 
     const targetBlock = e.target.closest('.drag');
     if (targetBlock && targetBlock !== draggedItem) {
-      let draggedIndex = [...dragElements].indexOf(draggedItem);
-      let targetIndex = [...dragElements].indexOf(targetBlock);
-
-      [dragElements[draggedIndex].innerHTML, dragElements[targetIndex].innerHTML] = [
-        dragElements[targetIndex].innerHTML,
-        dragElements[draggedIndex].innerHTML,
-      ];
+      let dragElIndex = [...dragElements].indexOf(draggedItem);
+      let targetElIndex = [...dragElements].indexOf(targetBlock);
+      let newPosition = dragElements[targetElIndex].innerHTML;
+      let prevPosition = dragElements[dragElIndex].innerHTML;
+      dragElements[dragElIndex].innerHTML = newPosition;
+      dragElements[targetElIndex].innerHTML = prevPosition;
     }
   });
 });
